@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1e1f22">
+<title>Emoji Maker – animated Discord emojis</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="appbar">
+  <div class="brand"><span class="logo">😀</span> Emoji Maker <small>animated Discord emojis</small></div>
+  <div class="appbar-actions">
+    <button class="btn ghost" id="resetBtn" title="Reset all settings">Reset</button>
+  </div>
+</header>
+
+<main class="layout">
+  <section class="preview-col" id="previewCol">
+    <div class="card preview-card">
+      <div class="stage-box" id="stageBox"><canvas id="stage"></canvas></div>
+      <div class="chat" id="chat" data-theme="dark">
+        <div class="chat-row" id="chatBig"></div>
+        <div class="chat-row small" id="chatSmall"></div>
+      </div>
+      <div class="transport">
+        <button class="btn" id="playBtn" aria-label="Play or pause">⏸ Pause</button>
+        <button class="btn" id="themeBtn" aria-label="Toggle chat theme">🌙 Dark</button>
+        <label class="pin"><input type="checkbox" id="pinChk" checked> Pin</label>
+        <span class="info" id="info"></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="controls-col">
+    <div class="chips-wrap">
+      <div class="chips-title">Quick starts</div>
+      <div class="chips" id="chips"></div>
+    </div>
+
+    <details class="card sec" open>
+      <summary>🖼️ Images</summary>
+      <div class="sec-body">
+        <div class="drop" id="drop">
+          <input type="file" id="file" accept="image/*" multiple hidden>
+          <button class="btn primary" id="addBtn">Add images</button>
+          <span class="hint">or drop / paste them here. Order matters: with several images, emoji 1 gets image 1, and so on. Animated GIFs use their first frame.</span>
+        </div>
+        <div class="thumbs" id="thumbs"></div>
+        <div id="ctl-prep"></div>
+      </div>
+    </details>
+
+    <details class="card sec" open>
+      <summary>🧩 Set</summary>
+      <div class="sec-body" id="ctl-set"></div>
+    </details>
+
+    <details class="card sec" open>
+      <summary>🎬 Animation</summary>
+      <div class="sec-body" id="ctl-anim"></div>
+    </details>
+
+    <details class="card sec">
+      <summary>✨ Effects</summary>
+      <div class="sec-body" id="ctl-fx"></div>
+    </details>
+
+    <details class="card sec">
+      <summary>📦 Output</summary>
+      <div class="sec-body" id="ctl-out"></div>
+    </details>
+
+    <div class="card sec results" id="results" hidden>
+      <div class="results-head">
+        <h2>Your emojis</h2>
+        <div class="results-actions" id="resultActions"></div>
+      </div>
+      <div class="status" id="resultStatus"></div>
+      <div class="result-grid" id="resultGrid"></div>
+      <p class="hint" id="howto"></p>
+    </div>
+    <div class="spacer"></div>
+  </section>
+</main>
+
+<div class="actionbar">
+  <div class="progress" id="progress" hidden><div id="progressBar"></div><span id="progressText"></span></div>
+  <button class="btn primary big" id="buildBtn">Create GIFs</button>
+</div>
+
+<script src="js/gif.js"></script>
+<script src="js/zip.js"></script>
+<script src="js/imageproc.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
